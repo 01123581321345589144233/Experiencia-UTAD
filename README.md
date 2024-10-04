@@ -13,3 +13,5 @@ Na sua essência, a plataforma web pretende conceber um ambiente onde as empresa
 Rui Trigo, Gonçalo Carneiro, Adelino Magalhães, Nayara Menezes. 
 
 ### Adelino teste conexao
+
+### Gonçalo teste conexao
