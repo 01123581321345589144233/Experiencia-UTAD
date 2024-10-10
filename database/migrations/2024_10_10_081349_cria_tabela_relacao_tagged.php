@@ -11,26 +11,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cursos_ucs', function (Blueprint $table) {
-            $table->foreignId('idUC')->constrained('unidades_curriculares');
-            $table->foreignId('idCurso')->constrained('cursos');
-            $table->integer('semestre');
-            $table->date('anoLetivo');
-        });
-
-        Schema::create('alunos_ucs', function (Blueprint $table) {
-            $table->foreignId('idAluno')->constrained('alunos');
-            $table->foreign('idUC')->references('idUC')->on('cursos_ucs');
-            $table->date('anoLetivo')->primary();
-            $table->enum('status', ['concluida', 'inativo', 'inscrita']);
-        });
-
-        Schema::create('professores_ucs', function (Blueprint $table) {
-            $table->foreignId('idProfessor')->constrained('professores');
-            $table->foreign('idUC')->references('idUC')->on('cursos_ucs');
-            $table->date('anoLetivo')->primary();
-        });
-
         Schema::create('tagged_projetos', function (Blueprint $table) {
             $table->id();
             $table->foreignId('idTag')->constrained('tags_projetos');
@@ -51,11 +31,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cursos_ucs');
-        Schema::dropIfExists('alunos_ucs');
-        Schema::dropIfExists('professores_ucs');
         Schema::dropIfExists('tagged_projetos');
         Schema::dropIfExists('tagged_utilizadores');
-        
     }
 };
